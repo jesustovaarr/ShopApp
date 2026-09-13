@@ -65,23 +65,25 @@ class ShoeTile extends StatelessWidget {
                 ), // Column
 
                 // plus button
-                GestureDetector(
-                  onTap: onTap,
-                  child: Container(
-                    padding: const EdgeInsets.all(20),
-                    decoration: const BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(12),
-                        bottomRight: Radius.circular(12),
+                ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(12),
+                    bottomRight: Radius.circular(12),
+                  ),
+                  child: Material(
+                    color: Colors.black,
+                    child: InkWell(
+                      onTap: onTap,
+                      child: const Padding(
+                        padding: EdgeInsets.all(20),
+                        child: Icon(
+                          Icons.add,
+                          color: Colors.white,
+                        ),
                       ),
-                    ), // BoxDecoration
-                    child: const Icon(
-                      Icons.add,
-                      color: Colors.white,
-                    ), // Icon
-                  ), // Container
-                ), // GestureDetector
+                    ),
+                  ),
+                ),
               ],
             ), // Row
           ), // Padding

@@ -65,10 +65,13 @@ class _HomePageState extends State<HomePage> {
               children: [
                 // logo
                 DrawerHeader(
-                  child: Image.asset(
-                    'lib/images/nike2.png',
-                    color: Colors.white,
-                  ), // Image.asset
+                  child: ColorFiltered(
+                    colorFilter: const ColorFilter.mode(
+                      Colors.white,
+                      BlendMode.srcIn,
+                    ),
+                    child: Image.asset('lib/images/nike2.png'),
+                  ),
                 ), // DrawerHeader
 
                 Padding(

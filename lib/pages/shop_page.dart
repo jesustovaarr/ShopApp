@@ -19,9 +19,15 @@ class _ShopPageState extends State<ShopPage> {
     // alert the user, shoe successfully added
     showDialog(
       context: context,
-      builder: (context) => const AlertDialog(
-        title: Text('Successfully added!'),
-        content: Text('Check your cart'),
+      builder: (context) => AlertDialog(
+        title: const Text('Successfully added!'),
+        content: const Text('Check your cart'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('OK'),
+          ),
+        ],
       ),
     );
   }
@@ -93,7 +99,7 @@ class _ShopPageState extends State<ShopPage> {
           // list of shoes for sale
           Expanded(
             child: ListView.builder(
-              itemCount: 4,
+              itemCount: value.getShoeList().length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 // get a shoe from shop list

@@ -14,9 +14,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => Cart(),
-      builder: (context, child) => const MaterialApp(
+      builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: IntroPage(),
+        theme: ThemeData(
+          useMaterial3: true,
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color(0xFF2D1E18),
+            surface: const Color(0xFFF5F2EB),
+          ),
+          scaffoldBackgroundColor: const Color(0xFFF5F2EB),
+        ),
+        home: const IntroPage(),
       ), // MaterialApp
     ); // ChangeNotifierProvider
   }

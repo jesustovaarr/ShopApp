@@ -11,7 +11,7 @@ class MyBottomNavBar extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 20),
       child: GNav(
         color: Colors.grey[400],
-        activeColor: Colors.grey.shade700,
+        activeColor: const Color(0xFF2D1E18),
         tabActiveBorder: Border.all(color: Colors.white),
         tabBackgroundColor: Colors.grey.shade100,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -20,12 +20,12 @@ class MyBottomNavBar extends StatelessWidget {
         onTabChange: (value) => onTabChange!(value),
         tabs: const [
           GButton(
-            icon: Icons.home,
-            text: 'Shop',
+            icon: Icons.coffee_rounded,
+            text: 'Cafetería',
           ), // GButton
           GButton(
             icon: Icons.shopping_bag_rounded,
-            text: 'Cart',
+            text: 'Mi Pedido',
           ), // GButton
         ],
       ), // GNav

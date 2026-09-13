@@ -1,61 +1,61 @@
 import 'package:flutter/material.dart';
-import 'shoe.dart';
+import 'coffee.dart';
 
 class Cart extends ChangeNotifier {
-  // list of shoes for sale
-  List<Shoe> shoeShop = [
-    Shoe(
-      name: 'Zoom FREAK',
-      price: '236',
+  // list of coffee products for sale
+  List<Coffee> coffeeShop = [
+    Coffee(
+      name: 'Geisha de Altura',
+      price: '280',
       description:
-          'The forward-thinking design of his latest signature shoe.',
-      imagePath: 'lib/images/ZoomFreak.png',
+          'Tostado medio con delicadas notas florales a jazmín y durazno de cumbre.',
+      imagePath: 'lib/images/geisha.png',
     ),
-    Shoe(
-      name: 'Air Jordans',
-      price: '220',
-      description:
-          'You\'ve got the hops and the speed-lace up in shoes that enhance what you bring to the court.',
-      imagePath: 'lib/images/AirJordan.png',
-    ),
-    Shoe(
-      name: 'KD Treys',
-      price: '240',
-      description:
-          'A secure midfoot strap is suited for scoring binges and defensive stops.',
-      imagePath: 'lib/images/KDTREY.png',
-    ),
-    Shoe(
-      name: 'Kyrie 6',
+    Coffee(
+      name: 'Espresso Profundo',
       price: '190',
       description:
-          'Bouncy cushioning is paired with soft yet supportive foam for responsiveness.',
-      imagePath: 'lib/images/Kyrie.png',
+          'Tueste oscuro con intensas notas de cacao amargo y avellana tostada.',
+      imagePath: 'lib/images/espresso.png',
+    ),
+    Coffee(
+      name: 'Cold Brew Silvestre',
+      price: '165',
+      description:
+          'Infusión en frío durante 18 horas con granos de altura y vainilla.',
+      imagePath: 'lib/images/cold_brew.png',
+    ),
+    Coffee(
+      name: 'Prensa Francesa',
+      price: '340',
+      description:
+          'Cafetera de cristal borosilicato resistente con acabados en madera de bambú.',
+      imagePath: 'lib/images/prensa.png',
     ),
   ];
 
   // list of items in user cart
-  List<Shoe> userCart = [];
+  List<Coffee> userCart = [];
 
-  // get list of shoes for sale
-  List<Shoe> getShoeList() {
-    return shoeShop;
+  // get list of coffee for sale
+  List<Coffee> getCoffeeList() {
+    return coffeeShop;
   }
 
   // get cart
-  List<Shoe> getUserCart() {
+  List<Coffee> getUserCart() {
     return userCart;
   }
 
   // add items to cart
-  void addItemToCart(Shoe shoe) {
-    userCart.add(shoe);
+  void addItemToCart(Coffee coffee) {
+    userCart.add(coffee);
     notifyListeners();
   }
 
   // remove item from cart
-  void removeItemFromCart(Shoe shoe) {
-    userCart.remove(shoe);
+  void removeItemFromCart(Coffee coffee) {
+    userCart.remove(coffee);
     notifyListeners();
   }
 }

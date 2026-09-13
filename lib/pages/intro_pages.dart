@@ -7,7 +7,7 @@ class IntroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: const Color(0xFFF5F2EB),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -17,9 +17,11 @@ class IntroPage extends StatelessWidget {
               // logo
               Padding(
                 padding: const EdgeInsets.all(25.0),
-                child: Image.asset(
-                  'lib/images/nike.png',
-                  height: 240,
+                child: ClipOval(
+                  child: Image.asset(
+                    'lib/images/logo.png',
+                    height: 220,
+                  ),
                 ),
               ),
 
@@ -27,21 +29,24 @@ class IntroPage extends StatelessWidget {
 
               // title
               const Text(
-                'Just Do It',
+                'Bosque de Niebla',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 20,
+                  fontSize: 24,
+                  color: Color(0xFF2D1E18),
+                  letterSpacing: 0.5,
                 ),
               ),
 
               const SizedBox(height: 24),
 
               // sub title
-              const Text(
-                'Brand new sneakers and custom kicks made with premium quality',
+              Text(
+                'Café de especialidad cultivado en las alturas. El refugio perfecto para días de lluvia y calma.',
                 style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey,
+                  fontSize: 15,
+                  color: Colors.brown.shade400,
+                  height: 1.4,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -49,27 +54,28 @@ class IntroPage extends StatelessWidget {
               const SizedBox(height: 48),
 
               // start now button
-              GestureDetector(
-                onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => HomePage(),
+              SizedBox(
+                width: double.infinity,
+                child: FilledButton(
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const HomePage(),
+                    ),
                   ),
-                ),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.grey[900],
-                    borderRadius: BorderRadius.circular(12),
+                  style: FilledButton.styleFrom(
+                    backgroundColor: const Color(0xFF2D1E18),
+                    padding: const EdgeInsets.all(22),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(14),
+                    ),
                   ),
-                  padding: const EdgeInsets.all(25),
-                  child: const Center(
-                    child: Text(
-                      'Shop Now',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
+                  child: const Text(
+                    'Entrar a la Cafetería',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
                     ),
                   ),
                 ),

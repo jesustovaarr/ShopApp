@@ -15,7 +15,7 @@ void main() {
     await tester.pumpWidget(const MyApp());
 
     // Verify that IntroPage text is found.
-    expect(find.text('Just Do It'), findsOneWidget);
-    expect(find.text('Shop Now'), findsOneWidget);
+    expect(find.text('Bosque de Niebla'), findsOneWidget);
+    expect(find.text('Entrar a la Cafetería'), findsOneWidget);
   });
 }

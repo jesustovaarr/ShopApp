@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: const Color(0xFFF5F2EB),
       bottomNavigationBar: MyBottomNavBar(
         onTabChange: (index) => navigateBottomBar(index),
       ), // MyBottomNavBar
@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.only(left: 12.0),
               child: Icon(
                 Icons.menu,
-                color: Colors.black,
+                color: Color(0xFF2D1E18),
               ), // Icon
             ), // Padding
             onPressed: () {
@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
         ), // Builder
       ), // AppBar
       drawer: Drawer(
-        backgroundColor: Colors.grey[900],
+        backgroundColor: const Color(0xFF2D1E18),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -65,19 +65,15 @@ class _HomePageState extends State<HomePage> {
               children: [
                 // logo
                 DrawerHeader(
-                  child: ColorFiltered(
-                    colorFilter: const ColorFilter.mode(
-                      Colors.white,
-                      BlendMode.srcIn,
-                    ),
-                    child: Image.asset('lib/images/nike2.png'),
+                  child: ClipOval(
+                    child: Image.asset('lib/images/logo.png'),
                   ),
                 ), // DrawerHeader
 
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Divider(
-                    color: Colors.grey[800],
+                    color: Colors.brown.shade700,
                   ), // Divider
                 ), // Padding
 
@@ -86,11 +82,11 @@ class _HomePageState extends State<HomePage> {
                   padding: EdgeInsets.only(left: 25.0),
                   child: ListTile(
                     leading: Icon(
-                      Icons.home,
+                      Icons.coffee_rounded,
                       color: Colors.white,
                     ), // Icon
                     title: Text(
-                      'Home',
+                      'Cafetería',
                       style: TextStyle(color: Colors.white),
                     ), // Text
                   ), // ListTile
@@ -100,11 +96,11 @@ class _HomePageState extends State<HomePage> {
                   padding: EdgeInsets.only(left: 25.0),
                   child: ListTile(
                     leading: Icon(
-                      Icons.info,
+                      Icons.forest_rounded,
                       color: Colors.white,
                     ), // Icon
                     title: Text(
-                      'About',
+                      'Nuestra Finca',
                       style: TextStyle(color: Colors.white),
                     ), // Text
                   ), // ListTile
@@ -120,7 +116,7 @@ class _HomePageState extends State<HomePage> {
                   color: Colors.white,
                 ), // Icon
                 title: Text(
-                  'Logout',
+                  'Cerrar sesión',
                   style: TextStyle(color: Colors.white),
                 ), // Text
               ), // ListTile

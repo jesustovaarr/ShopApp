@@ -18,7 +18,11 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           useMaterial3: true,
-          scaffoldBackgroundColor: Colors.grey[300],
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color(0xFF2D1E18),
+            surface: const Color(0xFFF5F2EB),
+          ),
+          scaffoldBackgroundColor: const Color(0xFFF5F2EB),
         ),
         home: const IntroPage(),
       ), // MaterialApp

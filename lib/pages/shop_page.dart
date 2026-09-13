@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../components/shoe_tile.dart';
+import '../components/coffee_tile.dart';
 import '../models/cart.dart';
-import '../models/shoe.dart';
+import '../models/coffee.dart';
 
 class ShopPage extends StatefulWidget {
   const ShopPage({super.key});
@@ -12,20 +12,39 @@ class ShopPage extends StatefulWidget {
 }
 
 class _ShopPageState extends State<ShopPage> {
-  // add shoe to cart
-  void addShoeToCart(Shoe shoe) {
-    Provider.of<Cart>(context, listen: false).addItemToCart(shoe);
+  // add coffee to cart
+  void addCoffeeToCart(Coffee coffee) {
+    Provider.of<Cart>(context, listen: false).addItemToCart(coffee);
 
-    // alert the user, shoe successfully added
+    // alert the user, coffee successfully added
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Successfully added!'),
-        content: const Text('Check your cart'),
+        backgroundColor: const Color(0xFFF5F2EB),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+        title: const Text(
+          '¡Añadido a tu pedido!',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Color(0xFF2D1E18),
+          ),
+        ),
+        content: const Text(
+          'Revisa tu carrito para disfrutar de este café.',
+          style: TextStyle(color: Colors.black87),
+        ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('OK'),
+            child: const Text(
+              'Aceptar',
+              style: TextStyle(
+                color: Color(0xFF2D1E18),
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
         ],
       ),
@@ -42,19 +61,26 @@ class _ShopPageState extends State<ShopPage> {
             padding: const EdgeInsets.all(12),
             margin: const EdgeInsets.symmetric(horizontal: 25),
             decoration: BoxDecoration(
-              color: Colors.grey[200],
-              borderRadius: BorderRadius.circular(8),
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.04),
+                  blurRadius: 8,
+                  offset: const Offset(0, 2),
+                ),
+              ],
             ), // BoxDecoration
-            child: const Row(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Search',
-                  style: TextStyle(color: Colors.grey),
+                  'Buscar café o método...',
+                  style: TextStyle(color: Colors.grey.shade500),
                 ), // Text
                 Icon(
                   Icons.search,
-                  color: Colors.grey,
+                  color: Colors.brown.shade400,
                 ), // Icon
               ],
             ), // Row
@@ -62,10 +88,14 @@ class _ShopPageState extends State<ShopPage> {
 
           // message
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 25.0),
+            padding: const EdgeInsets.symmetric(vertical: 22.0),
             child: Text(
-              'everyone flies.. some fly longer than others',
-              style: TextStyle(color: Colors.grey[600]),
+              'mientras la lluvia cae afuera.. el aroma a café lo reconforta todo',
+              style: TextStyle(
+                color: Colors.brown.shade600,
+                fontStyle: FontStyle.italic,
+                fontSize: 13,
+              ),
             ), // Text
           ), // Padding
 
@@ -77,45 +107,46 @@ class _ShopPageState extends State<ShopPage> {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: const [
                 Text(
-                  'Hot Picks 🔥',
+                  'Selección de la Finca',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 24,
+                    fontSize: 22,
+                    color: Color(0xFF2D1E18),
                   ),
                 ), // Text
                 Text(
-                  'See all',
+                  'Ver todo',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: Colors.blue,
+                    color: Color(0xFF6F4E37),
                   ),
                 ), // Text
               ],
             ), // Row
           ), // Padding
 
-          const SizedBox(height: 10),
+          const SizedBox(height: 12),
 
-          // list of shoes for sale
+          // list of coffee for sale
           Expanded(
             child: ListView.builder(
-              itemCount: value.getShoeList().length,
+              itemCount: value.getCoffeeList().length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                // get a shoe from shop list
-                Shoe shoe = value.getShoeList()[index];
+                // get a coffee from shop list
+                Coffee coffee = value.getCoffeeList()[index];
 
-                // return the shoe
-                return ShoeTile(
-                  shoe: shoe,
-                  onTap: () => addShoeToCart(shoe),
-                ); // ShoeTile
+                // return the coffee tile
+                return CoffeeTile(
+                  coffee: coffee,
+                  onTap: () => addCoffeeToCart(coffee),
+                ); // CoffeeTile
               },
             ), // ListView.builder
           ), // Expanded
 
           const Padding(
-            padding: EdgeInsets.only(top: 25.0, left: 25, right: 25),
+            padding: EdgeInsets.only(top: 20.0, left: 25, right: 25),
             child: Divider(
               color: Colors.white,
             ), // Divider
